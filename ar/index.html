@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيرك لاند | مدينة الملاهي الأولى للأطفال في الدوحة</title>
+
+    <!-- SEO: hreflang -->
+    <link rel="alternate" hreflang="en" href="https://example.com/index.html">
+    <link rel="alternate" hreflang="ar" href="https://example.com/ar/index.html">
+    <link rel="alternate" hreflang="x-default" href="https://example.com/index.html">
+
+    <!-- Google Fonts (Cairo for Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@400;600;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --brand-red: #d90429;
+            --brand-yellow: #ffb703;
+            --brand-blue: #023e8a;
+            --brand-light-blue: #00b4d8;
+            --bg-light: #f8f9fa;
+            --text-dark: #2b2d42;
+            --text-light: #140D0C;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cairo', 'Fredoka One', cursive;
+            font-weight: 900;
+            color: var(--brand-blue);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .header-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+        }
+
+        nav {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            height: 70px;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 700;
+            color: #FFFFFF;
+            font-size: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-yellow);
+        }
+
+        /* Language switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 25px;
+            padding: 4px 6px;
+        }
+
+        .lang-switcher a {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: none;
+        }
+
+        .lang-switcher a.active {
+            background: var(--brand-yellow);
+            color: var(--brand-blue);
+        }
+
+        .lang-switcher a:hover:not(.active) {
+            color: var(--brand-yellow);
+        }
+
+        .btn-contact {
+            background-color: var(--brand-red);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-shadow: none;
+        }
+
+        .btn-contact:hover {
+            background-color: #b00020;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../assets/images/entrance-1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #E6D377;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+            padding-top: 80px;
+        }
+
+        .hero p {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.9);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--brand-red);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .featured-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            height: 450px;
+        }
+
+        .featured-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .featured-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 40px 30px 30px;
+            color: var(--white);
+        }
+
+        .featured-overlay h3 {
+            color: var(--brand-yellow);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .featured-overlay p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .info-section {
+            background-color: var(--brand-blue);
+            color: var(--white);
+            padding: 80px 20px;
+        }
+
+        .info-section .section-header h2 {
+            color: var(--brand-yellow);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-top: 10px solid var(--brand-yellow);
+        }
+
+        .info-card h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--brand-red);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05rem;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            font-weight: 700;
+            color: var(--brand-blue);
+            background: #eef2f5;
+            padding: 2px 10px;
+            border-radius: 10px;
+        }
+
+        .packages-section {
+            background-color: var(--white);
+        }
+
+        .package-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .package-card {
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border: 2px dashed var(--brand-light-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            border-style: solid;
+            border-color: var(--brand-red);
+        }
+
+        .package-card i {
+            font-size: 3rem;
+            color: var(--brand-yellow);
+            margin-bottom: 20px;
+        }
+
+        .package-card h4 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--brand-blue);
+        }
+
+        .package-card p {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #adb5bd;
+            padding: 60px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .footer-item i {
+            color: var(--brand-yellow);
+            font-size: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--brand-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .featured-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 15px;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 100%);
+            }
+            .nav-logo img { margin-bottom: 15px; }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .section-header h2 { font-size: 2.2rem; }
+            .info-card { padding: 25px; }
+            .hero p { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-wrapper">
+
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-logo">
+                <a href="https://staging.landmarkdoha.com/entertainment.html">
+                    <img src="../assets/images/landmark-logo.png" alt="Landmark Doha" style="height: 40px;">
+                </a>
+            </div>
+                <div class="nav-links">
+                <a href="#about">من نحن</a>
+                <a href="#attractions">الألعاب</a>
+                <a href="#gallery">معرض الصور</a>
+                <a href="#info">ساعات العمل و الأسعار</a>
+                <a href="#contact-footer">تواصل معنا</a>
+                <!-- Language Switcher -->
+              <div class="lang-switcher">
+                <a href="../index.html" class="active" hreflang="en">EN</a>
+                <a href="/ar/index.html" hreflang="ar">ع</a>
+              </div>
+                <img src="../assets/images/logo.png" alt="Circus Land Logo" style="height: 50px; vertical-align: middle;">
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <header class="hero">
+            <div class="hero-content">
+                <p>مدينة  ملاهي ساحرة وملوّنة للأطفال في الدوحة، قطر. تقع داخل لاندمارك مول</p>
+                <a href="#info" class="btn-contact" style="padding: 15px 30px; font-size: 1.1rem;">الأسعار و ساعات العمل</a>
+            </div>
+        </header>
+    </div>
+
+    <!-- About -->
+    <section id="about" class="container">
+        <div class="section-header">
+            <h2>مرحبًا بكم في سيرك لاند</h2>
+            <p style="text-align: justify;">
+                    مدينة ألعاب للأطفال تقع داخل لاندمارك مول في الدوحة، قطر. إنها مساحة مرحة ومليئة بالألوان، تضم ألعابًا وأنشطة مستوحاة من عالم السيرك، وتوفّر للأطفال مكانًا للعب والاكتشاف وصنع ذكريات رائعة. يقدّم مجموعة متنوعة  منالأنشطة الترفيهية المناسبة للأطفال، بما في ذلك ألعاب الأركيد و ريديمبشن جيمز، والألعاب الترفيهية، ومنطقة سوفت بلاي، والترامبولين، وسينما الأطفال
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured -->
+    <section id="attractions" class="container" style="padding-top: 0;">
+        <div class="featured-grid">
+            <div class="featured-card">
+                <img src="../assets/images/Fantasy-Carousel.jpg" alt="The Fantasy Carousel">
+                <div class="featured-overlay">
+                    <h3>الدوامة الخيالية</h3>
+                    <p>ألعاب كلاسيكية بلمسة سحرية من عالم السيرك.</p>
+                </div>
+            </div>
+            <div class="featured-card">
+                <img src="../assets/images/Bumper-Car.jpg" alt="Thrill Rides & Bumper Cars">
+                <div class="featured-overlay">
+                    <h3>منطقة الإثارة</h3>
+                    <p>سيارات التصادم، والألعاب المتأرجحة، ومتعة مليئة بالحماس.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="container" style="padding-top: 0;">
+        <div class="section-header">
+            <h2>استكشف  منطقة العابنا</h2>
+            <p>ألقِ نظرة على العالم السحري لسيرك لاند.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="../assets/images/Redemption-Games-1.jpg" alt="Gaming Attractions"></div>
+            <div class="gallery-item"><img src="../assets/images/Soft-Play.jpg" alt="Soft Play Area"></div>
+            <div class="gallery-item"><img src="../assets/images/Trampoline.jpg" alt="Trampoline Park"></div>
+            <div class="gallery-item"><img src="../assets/images/Kidz-Cinema.jpg" alt="Kidz Cinema"></div>
+            <div class="gallery-item"><img src="../assets/images/Redemption-Booth.jpg" alt="Redemption Booth"></div>
+            <div class="gallery-item"><img src="../assets/images/Bowling.jpg" alt="Bowling Alley"></div>
+            <div class="gallery-item"><img src="../assets/images/Magic-Castle.jpg" alt="Magic Castle"></div>
+            <div class="gallery-item"><img src="../assets/images/Pirate-Ship.jpg" alt="Pirate Ship Play Area"></div>
+            <div class="gallery-item"><img src="../assets/images/Mini-Wheel.jpg" alt="Mini Wheel"></div>
+            <div class="gallery-item"><img src="../assets/images/Tea-Cup.jpg" alt="Tea Cup"></div>
+            <div class="gallery-item"><img src="../assets/images/Screw-Driver.jpg" alt="Screw Driver"></div>
+            <div class="gallery-item"><img src="../assets/images/Redemption-Games-2.jpg" alt="Redemption Games"></div>
+        </div>
+    </section>
+
+    <!-- Info -->
+    <section id="info" class="info-section">
+        <div class="section-header">
+            <h2>خطط لزيارتك</h2>
+            <p style="color: #cbd5e1;">كل ما تحتاج معرفته قبل وصولك</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><i class="far fa-clock"></i> ساعات العمل</h3>
+                <ul class="info-list">
+                    <li><span>السبت - الأربعاء</span> <span class="price-tag">09:00 AM - 10:00 PM</span></li>
+                    <li><span>الخميس</span> <span class="price-tag">09:00 AM - 11:00 PM</span></li>
+                    <li><span>الجمعة</span> <span class="price-tag">01:00 PM - 11:00 PM</span></li>
+                    <li><span class="price-tag">"قد تختلف ساعات العمل في المناسبات الخاصة"</span></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-ticket-alt"></i> الأسعار</h3>
+                <ul class="info-list">
+                    <li><span>الأركيد وألعاب الأطفال و استبدال النقاط</span> <span class="price-tag">QAR 3+</span></li>
+                    <li><span>الألعاب الترفيهية</span> <span class="price-tag">QAR 6+</span></li>
+                    <li><span>منطقة  سوفت بلاي  و الترامبولين</span> <span class="price-tag">QAR 18</span></li>
+                    <li><span>سينما الأطفال (بعد الظهر فقط)</span> <span class="price-tag">QAR 18</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages -->
+    <section class="container packages-section">
+        <div class="section-header">
+            <h2>الباقات و العروض</h2>
+            <p>عروض رائعة بأسعار مميزة للزوار الدائمين والمجموعات.</p>
+        </div>
+        <div class="package-cards">
+            <div class="package-card">
+                <i class="fas fa-gamepad"></i>
+                <h4>باورلودز</h4>
+                <p>،متوفرة بباقات بقيمة ٢٠٠ ،٣٠٠ ،٥٠٠ ر.ق. مثالية لعشاق الألعاب</p>
+            </div>
+            <div class="package-card">
+                <i class="fas fa-school"></i>
+                <h4>الرحلات المدرسية</h4>
+                <p>أسعار وعروض خاصة مصممة للمجموعات التعليمية والرحلات المدرسية.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact-footer">
+        <div class="footer-content">
+            <div class="footer-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>لاندمارك مول، شارع المرخية، الدوحة قطر</span>
+            </div>
+            <div class="footer-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>+974-44979761 / +974-44979762</span>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/circusland.landmark" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/circusland_landmark" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <div class="copyright">
+            <p>© 2026 سيرك لاند جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+</body>
+</html>
